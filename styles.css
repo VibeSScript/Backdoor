@@ -221,13 +221,15 @@ input[type="submit"]:hover {
 }
 
 #ctf-code-1:focus,
-#ctf-code-2:focus {
+#ctf-code-2:focus,
+#ctf-code-3:focus {
   border-color: #ff3333;
   box-shadow: 0 0 10px #ff3333;
 }
 
 #validate-ctf-code-1,
-#validate-ctf-code-2 {
+#validate-ctf-code-2,
+#validate-ctf-code-3 {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
@@ -240,7 +242,8 @@ input[type="submit"]:hover {
 }
 
 #validate-ctf-code-1:hover,
-#validate-ctf-code-2:hover {
+#validate-ctf-code-2:hover,
+#validate-ctf-code-3:hover {
   background: #ff3333;
 }
 

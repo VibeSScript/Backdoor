@@ -148,42 +148,53 @@ async function checkPassword(level) {
 
   }
 
-  function displayTuto() {
-    const allScenarios = document.querySelectorAll(".scenario");
-    allScenarios.forEach(scenario => scenario.style.display = "none");
+  // Fonction pour afficher le tutoriel
+function displayTuto() {
+  // Masquer tous les scénarios
+  const allScenarios = document.querySelectorAll(".scenario");
+  allScenarios.forEach(scenario => scenario.style.display = "none");
 
-    const tutoElement = document.getElementById("tuto");
-    if (tutoElement) {
-        tutoElement.style.display = "block";
-        tutoElement.scrollIntoView({ behavior: "smooth" });
-    }
+  // Afficher uniquement le tutoriel
+  const tutoElement = document.getElementById("tuto-container");
+  if (tutoElement) {
+      tutoElement.style.display = "block";
+      tutoElement.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
-// Afficher le tutoriel uniquement au premier chargement de la page
+// Au chargement de la page, afficher le tutoriel si aucun hash n'est présent
 window.addEventListener("load", function () {
-    const tutoElement = document.getElementById("tuto");
-    if (tutoElement) {
-        const currentHash = window.location.hash;
-        
-        if (!currentHash || currentHash === "#tuto") {
-            displayTuto();
-        } else {
-            // Si on arrive directement sur un scénario (#scenario-1, etc.)
-            document.querySelector(currentHash).style.display = "block";
-        }
-    }
+  const currentHash = window.location.hash;
+  const tutoElement = document.getElementById("tuto-container");
+  const allScenarios = document.querySelectorAll(".scenario");
+
+  // Masquer les scénarios par défaut
+  allScenarios.forEach(scenario => scenario.style.display = "none");
+
+  if (!currentHash || currentHash === "#tuto") {
+      displayTuto();
+  } else {
+      if (document.querySelector(currentHash)) {
+          document.querySelector(currentHash).style.display = "block";
+      }
+  }
 });
 
-// Gestion du changement de hash pour les scénarios
+// Lors d'un changement de hash (clic sur un scénario)
 window.addEventListener("hashchange", function () {
-    const allScenarios = document.querySelectorAll(".scenario");
-    allScenarios.forEach(scenario => scenario.style.display = "none");
+  const allScenarios = document.querySelectorAll(".scenario");
+  const tutoElement = document.getElementById("tuto-container");
 
-    const targetElement = document.querySelector(window.location.hash);
-    if (targetElement) {
-        targetElement.style.display = "block";
-        targetElement.scrollIntoView({ behavior: "smooth" });
-    }
+  // Masquer tout
+  allScenarios.forEach(scenario => scenario.style.display = "none");
+  tutoElement.style.display = "none";
+
+  // Afficher le bon scénario
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+      targetElement.style.display = "block";
+      targetElement.scrollIntoView({ behavior: "smooth" });
+  }
 });
 
 

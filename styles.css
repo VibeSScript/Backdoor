@@ -207,6 +207,17 @@ input[type="submit"]:hover {
   font-family: Arial, sans-serif;
 }
 
+/* Masquer le tutoriel par défaut */
+#tuto-container {
+  display: none;
+}
+
+/* Masquer les scénarios par défaut également */
+.scenario {
+  display: none;
+}
+
+
 #ctf-code-1,
 #ctf-code-2,
 #ctf-code-3 {

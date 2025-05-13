@@ -148,5 +148,44 @@ async function checkPassword(level) {
 
   }
 
+  function displayTuto() {
+    const allScenarios = document.querySelectorAll(".scenario");
+    allScenarios.forEach(scenario => scenario.style.display = "none");
+
+    const tutoElement = document.getElementById("tuto");
+    if (tutoElement) {
+        tutoElement.style.display = "block";
+        tutoElement.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+// Afficher le tutoriel uniquement au premier chargement de la page
+window.addEventListener("load", function () {
+    const tutoElement = document.getElementById("tuto");
+    if (tutoElement) {
+        const currentHash = window.location.hash;
+        
+        if (!currentHash || currentHash === "#tuto") {
+            displayTuto();
+        } else {
+            // Si on arrive directement sur un scénario (#scenario-1, etc.)
+            document.querySelector(currentHash).style.display = "block";
+        }
+    }
+});
+
+// Gestion du changement de hash pour les scénarios
+window.addEventListener("hashchange", function () {
+    const allScenarios = document.querySelectorAll(".scenario");
+    allScenarios.forEach(scenario => scenario.style.display = "none");
+
+    const targetElement = document.querySelector(window.location.hash);
+    if (targetElement) {
+        targetElement.style.display = "block";
+        targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+});
+
+
 }
 

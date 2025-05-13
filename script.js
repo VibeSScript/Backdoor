@@ -149,18 +149,20 @@ async function checkPassword(level) {
   }
 
   // Fonction pour afficher le tutoriel
+// Fonction pour afficher le tutoriel
 function displayTuto() {
   // Masquer tous les scénarios
   const allScenarios = document.querySelectorAll(".scenario");
   allScenarios.forEach(scenario => scenario.style.display = "none");
 
   // Afficher uniquement le tutoriel
-  const tutoElement = document.getElementById("tuto-container");
+  const tutoElement = document.getElementById("tuto");
   if (tutoElement) {
       tutoElement.style.display = "block";
       tutoElement.scrollIntoView({ behavior: "smooth" });
   }
 }
+
 
 // Au chargement de la page, afficher le tutoriel si aucun hash n'est présent
 window.addEventListener("load", function () {

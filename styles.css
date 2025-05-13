@@ -128,7 +128,7 @@ body {
 
 /* Tuto Section */
 #tuto {
-  display: block;
+  display: none;
   background: linear-gradient(135deg, #ff4500 30%, #1a1a1a 70%);
   padding: 20px;
   border-radius: 15px;

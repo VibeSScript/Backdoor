@@ -104,22 +104,18 @@ window.addEventListener("load", function () {
   const tutoElement = document.getElementById("tuto");
 
   if (tutoElement) {
-      // On le rend temporairement visible
+      // On le rend visible au chargement
       tutoElement.style.display = "block";
 
-      // On scrolle avec un léger délai
+      // On scrolle avec un léger délai pour être sûr que le rendu est bien fait
       setTimeout(() => {
           tutoElement.scrollIntoView({ behavior: "smooth" });
-
-          // On le remet invisible après le scroll
-          setTimeout(() => {
-              tutoElement.style.display = "none";
-          }, 500);
       }, 100); 
   } else {
       console.warn("⚠️ L'élément avec l'ID 'tuto' n'a pas été trouvé.");
   }
 });
+
 
 
 

@@ -100,6 +100,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+window.addEventListener("load", function () {
+  const tutoElement = document.getElementById("tuto");
+  
+  if (tutoElement) {
+      // Petit délai pour s'assurer que le rendu est bien fait
+      setTimeout(() => {
+          tutoElement.scrollIntoView({ behavior: "smooth" });
+      }, 100); 
+  } else {
+      console.warn("⚠️ L'élément avec l'ID 'tuto' n'a pas été trouvé.");
+  }
+});
+
 
 
 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Scenario</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+<!-- Colonne de gauche -->
+<div class="left-sidebar">
+    <li><a href="#tuto">TUTORIEL</a></li>
+    <div id="sidebar-content"></div>
+</div>
+
+<!-- Barre de navigation -->
+<div class="navbar">
+    <img src="./assets/Logo.png" alt="logo">
+    <ul>
+        <li><a href="Accueil">Accueil</a></li>
+        <li><a href="CTF">CTF</a></li>
+        <li><a href="Contact">Contact</a></li>
+    </ul>
+    <input class="search-bar" type="text" placeholder="Rechercher...">
+</div>
+
+<!-- Contenu principal -->
+<div class="main-content">
+    <h1>Scénario CTF</h1></br>
+
+    <div id="tuto" class="scenario">
+        <h2>Tutoriel</h2>
+        <p>
+            Le but de ce niveau est de vous connecter au jeu en utilisant SSH. L'hôte auquel vous devez vous connecter
+            est <strong>172.143.145.XX</strong>, sur le port <strong>22</strong>. Le nom d'utilisateur est
+            <strong>door</strong> et le mot de passe est <strong>door0</strong>.
+        </p>
+        <p>
+            Une fois connecté, accédez à la page Niveau 1 pour savoir comment terminer le niveau 1.
+        </p>
+    </div>
+
+    <!-- Scénarios -->
+    <div id="scenario-1" class="scenario">
+        <h2>Scénario Débutant #1</h2>
+        <p>
+            Après avoir suivi le tutoriel, et une fois connecté en SSH sur la machine virtuelle.</br>
+            Il est temps de passer aux choses sérieuses.Trouvez le code caché parmi les fichiers présents..</br>
+            Voici les indices laissés : TOULOUSE, VIANDE.</br>
+            </br>
+
+            Une fois que vous pensez l'avoir trouvé, tapez le dans la barre de recherche ci-dessous :</br>
+            Si c'est vert, passez au niveau supérieur !
+            Bonne chance :)
+        </p>
+
+        <div class="ctf-input-container">
+            <input type="text" id="ctf-code-1" placeholder="Entrez le code du CTF"/>
+            <button id="validate-ctf-code-1">Valider</button>
+            <div id="feedback-1" class="feedback"></div>
+        </div>
+    </div>
+
+    <div id="scenario-2" class="scenario">
+        <h2>Scénario Débutant #2</h2>
+        <p>Crackez un mot de passe faible...</p>
+
+        <div class="ctf-input-container">
+            <input type="text" id="ctf-code-2" placeholder="Entrez le code du CTF"/>
+            <button id="validate-ctf-code-2">Valider</button>
+            <div id="feedback-2" class="feedback"></div>
+        </div>
+    </div>
+
+    <div id="scenario-3" class="scenario">
+        <h2>Scénario Débutant #3</h2>
+        <p>Analysez une configuration réseau vulnérable.</p>
+    </div>
+    <div id="scenario-4" class="scenario">
+        <h2>Scénario Débutant #4</h2>
+        <p>Détectez une attaque en cours via les logs.</p>
+    </div>
+    <div id="scenario-5" class="scenario">
+        <h2>Scénario Débutant #5</h2>
+        <p>Réparez un système touché par un ransomware.</p>
+    </div>
+    <div id="scenario-6" class="scenario">
+        <h2>Scénario Intermédiaire #6</h2>
+        <p>Automatisez la détection de ports ouverts avec un script.</p>
+    </div>
+    <!-- Ajoutez les autres scénarios ici -->
+    <div id="scenario-20" class="scenario">
+        <h2>Scénario Expert #20</h2>
+        <p>Implémentez des contre-mesures avancées contre les ransomwares.</p>
+    </div>
+</div>
+
+<style>
+        .scenario {
+            display: none;
+        }
+
+        .scenario:target {
+            display: block;
+        }
+
+</style>
+
+<script src="script.js"></script>
+</body>
+
+</html>

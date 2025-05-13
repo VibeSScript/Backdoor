@@ -1,0 +1,311 @@
+/* Reset global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Sidebar */
+.left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background: #2b3035;
+  color: #fff;
+  padding: 30px 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: width 0.3s;
+}
+
+.left-sidebar li {
+  list-style: none;
+}
+
+.left-sidebar li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+  transition: all 0.3s;
+}
+
+.left-sidebar li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.left-sidebar li a:hover {
+  color: #fc0606;
+}
+
+.left-sidebar h2 {
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.left-sidebar h3 {
+  font-size: 22px;
+  color: #fff;
+  margin: 15px 0 10px;
+  font-weight: 400;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2b3035;
+  color: #fff;
+  padding: 16px 30px;
+  position: fixed;
+  top: 0;
+  left: 220px;
+  width: calc(100% - 220px);
+  z-index: 90;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar img {
+  width: 80px;
+  border-radius: 10%;
+  transition: transform 0.3s;
+}
+
+.navbar img:hover {
+  transform: scale(1.1);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 30px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #b21515;
+}
+
+.navbar .search-bar {
+  background: #2b3035;
+  border: 2px solid #b21515;
+  padding: 8px 15px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  width: 200px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 220px;
+  margin-top: 70px;
+  padding: 20px;
+  flex: 1;
+}
+
+/* Tuto Section */
+#tuto {
+  background: linear-gradient(135deg, #ff4500 30%, #1a1a1a 70%);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+#tuto::before,
+#tuto::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+#tuto::before {
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 69, 0, 0.2);
+  transform: rotate(30deg);
+}
+
+#tuto::after {
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 69, 0, 0.1);
+  transform: rotate(-30deg);
+}
+
+#tuto h2 {
+  font-size: 2rem;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
+
+#tuto p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e6e6e6;
+  z-index: 2;
+  position: relative;
+}
+
+/* Scenario Description */
+#scenario-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #c31a1a;
+}
+
+/* CTF Input Section */
+.ctf-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+#ctf-code-1,
+#ctf-code-2 {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #b30000;
+  border-radius: 5px;
+  background: #1a1a1a;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+#ctf-code-1:focus,
+#ctf-code-2:focus {
+  border-color: #ff3333;
+  box-shadow: 0 0 10px #ff3333;
+}
+
+#validate-ctf-code-1,
+#validate-ctf-code-2 {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #b30000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#validate-ctf-code-1:hover,
+#validate-ctf-code-2:hover {
+  background: #ff3333;
+}
+
+/* Feedback Messages */
+.feedback {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.feedback.success {
+  color: #0f0;
+}
+
+.feedback.error {
+  color: #f33;
+}
+
+.scenario {
+  background: linear-gradient(135deg, #ff4500 30%, #1a1a1a 70%);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.scenario::before,
+.scenario::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.scenario::before {
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 69, 0, 0.2);
+  transform: rotate(30deg);
+}
+
+.scenario::after {
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 69, 0, 0.1);
+  transform: rotate(-30deg);
+}
+
+.scenario h2 {
+  font-size: 2rem;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+}
+
+.scenario p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e6e6e6;
+  z-index: 2;
+  position: relative;
+}

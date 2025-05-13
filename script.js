@@ -29,32 +29,21 @@ function generateSidebar() {
   }
 }
 
-// Fonction de validation des codes de CTF pour chaque scénario
-function validateScenario(scenarioId, correctPassword) {
-  const input = document.getElementById(`ctf-code-${scenarioId}`);
-  const feedback = document.getElementById(`feedback-${scenarioId}`);
+// Fonction pour afficher le tutoriel et masquer les autres scénarios
+function displayTuto() {
+  // Masquer tous les scénarios
+  const allScenarios = document.querySelectorAll(".scenario");
+  allScenarios.forEach(scenario => scenario.style.display = "none");
 
-  // Réinitialiser les styles
-  input.style.borderColor = "";
-  feedback.classList.remove("success", "error");
-  feedback.style.opacity = 0;
-
-  // Validation du mot de passe
-  if (input.value === correctPassword) {
-    input.style.borderColor = "#00ff00"; // Vert pour succès
-    feedback.textContent = "Succès : Code correct !";
-    feedback.classList.add("success");
-  } else {
-    input.style.borderColor = "#ff0000"; // Rouge pour erreur
-    feedback.textContent = "Erreur : Code incorrect!";
-    feedback.classList.add("error");
+  // Afficher uniquement le tutoriel
+  const tutoElement = document.getElementById("tuto");
+  if (tutoElement) {
+      tutoElement.classList.add('tuto-visible'); // Ajouter la classe pour afficher le tutoriel
+      tutoElement.scrollIntoView({ behavior: "smooth" });
   }
-
-  // Affichage du feedback avec animation d'opacité
-  feedback.style.opacity = 1;
 }
 
-// Ajouter les écouteurs d'événements pour chaque bouton de validation
+// Ajouter les écouteurs d'événements pour chaque bouton de validation des scénarios
 document.getElementById("validate-ctf-code-1").addEventListener("click", function () {
   validateScenario(1, "TOULOUSE"); // Mot de passe correct pour le scénario 1
 });
@@ -62,6 +51,14 @@ document.getElementById("validate-ctf-code-1").addEventListener("click", functio
 document.getElementById("validate-ctf-code-2").addEventListener("click", function () {
   validateScenario(2, "FAIBLE"); // Mot de passe correct pour le scénario 2
 });
+
+document.getElementById("validate-ctf-code-3").addEventListener("click", function () {
+  validateScenario(3, "IMAGE"); // Mot de passe correct pour le scénario 3
+});
+
+// Initialisation : Générer la sidebar après le chargement du DOM
+document.addEventListener("DOMContentLoaded", generateSidebar);
+
 
 // Initialisation : Générer la sidebar après le chargement du DOM
 document.addEventListener("DOMContentLoaded", generateSidebar);

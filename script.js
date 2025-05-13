@@ -29,21 +29,32 @@ function generateSidebar() {
   }
 }
 
-// Fonction pour afficher le tutoriel et masquer les autres scénarios
-function displayTuto() {
-  // Masquer tous les scénarios
-  const allScenarios = document.querySelectorAll(".scenario");
-  allScenarios.forEach(scenario => scenario.style.display = "none");
+// Fonction de validation des codes de CTF pour chaque scénario
+function validateScenario(scenarioId, correctPassword) {
+  const input = document.getElementById(`ctf-code-${scenarioId}`);
+  const feedback = document.getElementById(`feedback-${scenarioId}`);
 
-  // Afficher uniquement le tutoriel
-  const tutoElement = document.getElementById("tuto");
-  if (tutoElement) {
-      tutoElement.classList.add('tuto-visible'); // Ajouter la classe pour afficher le tutoriel
-      tutoElement.scrollIntoView({ behavior: "smooth" });
+  // Réinitialiser les styles
+  input.style.borderColor = "";
+  feedback.classList.remove("success", "error");
+  feedback.style.opacity = 0;
+
+  // Validation du mot de passe
+  if (input.value === correctPassword) {
+    input.style.borderColor = "#00ff00"; // Vert pour succès
+    feedback.textContent = "Succès : Code correct !";
+    feedback.classList.add("success");
+  } else {
+    input.style.borderColor = "#ff0000"; // Rouge pour erreur
+    feedback.textContent = "Erreur : Code incorrect!";
+    feedback.classList.add("error");
   }
+
+  // Affichage du feedback avec animation d'opacité
+  feedback.style.opacity = 1;
 }
 
-// Ajouter les écouteurs d'événements pour chaque bouton de validation des scénarios
+// Ajouter les écouteurs d'événements pour chaque bouton de validation
 document.getElementById("validate-ctf-code-1").addEventListener("click", function () {
   validateScenario(1, "TOULOUSE"); // Mot de passe correct pour le scénario 1
 });
@@ -51,14 +62,6 @@ document.getElementById("validate-ctf-code-1").addEventListener("click", functio
 document.getElementById("validate-ctf-code-2").addEventListener("click", function () {
   validateScenario(2, "FAIBLE"); // Mot de passe correct pour le scénario 2
 });
-
-document.getElementById("validate-ctf-code-3").addEventListener("click", function () {
-  validateScenario(3, "IMAGE"); // Mot de passe correct pour le scénario 3
-});
-
-// Initialisation : Générer la sidebar après le chargement du DOM
-document.addEventListener("DOMContentLoaded", generateSidebar);
-
 
 // Initialisation : Générer la sidebar après le chargement du DOM
 document.addEventListener("DOMContentLoaded", generateSidebar);
@@ -145,55 +148,42 @@ async function checkPassword(level) {
 
   }
 
-  // Fonction pour afficher le tutoriel
-// Fonction pour afficher le tutoriel
-function displayTuto() {
-  // Masquer tous les scénarios
-  const allScenarios = document.querySelectorAll(".scenario");
-  allScenarios.forEach(scenario => scenario.style.display = "none");
+  function displayTuto() {
+    const allScenarios = document.querySelectorAll(".scenario");
+    allScenarios.forEach(scenario => scenario.style.display = "none");
 
-  // Afficher uniquement le tutoriel
-  const tutoElement = document.getElementById("tuto");
-  if (tutoElement) {
-      tutoElement.style.display = "block";
-      tutoElement.scrollIntoView({ behavior: "smooth" });
-  }
+    const tutoElement = document.getElementById("tuto");
+    if (tutoElement) {
+        tutoElement.style.display = "block";
+        tutoElement.scrollIntoView({ behavior: "smooth" });
+    }
 }
 
-
-// Au chargement de la page, afficher le tutoriel si aucun hash n'est présent
+// Afficher le tutoriel uniquement au premier chargement de la page
 window.addEventListener("load", function () {
-  const currentHash = window.location.hash;
-  const tutoElement = document.getElementById("tuto-container");
-  const allScenarios = document.querySelectorAll(".scenario");
-
-  // Masquer les scénarios par défaut
-  allScenarios.forEach(scenario => scenario.style.display = "none");
-
-  if (!currentHash || currentHash === "#tuto") {
-      displayTuto();
-  } else {
-      if (document.querySelector(currentHash)) {
-          document.querySelector(currentHash).style.display = "block";
-      }
-  }
+    const tutoElement = document.getElementById("tuto");
+    if (tutoElement) {
+        const currentHash = window.location.hash;
+        
+        if (!currentHash || currentHash === "#tuto") {
+            displayTuto();
+        } else {
+            // Si on arrive directement sur un scénario (#scenario-1, etc.)
+            document.querySelector(currentHash).style.display = "block";
+        }
+    }
 });
 
-// Lors d'un changement de hash (clic sur un scénario)
+// Gestion du changement de hash pour les scénarios
 window.addEventListener("hashchange", function () {
-  const allScenarios = document.querySelectorAll(".scenario");
-  const tutoElement = document.getElementById("tuto-container");
+    const allScenarios = document.querySelectorAll(".scenario");
+    allScenarios.forEach(scenario => scenario.style.display = "none");
 
-  // Masquer tout
-  allScenarios.forEach(scenario => scenario.style.display = "none");
-  tutoElement.style.display = "none";
-
-  // Afficher le bon scénario
-  const targetElement = document.querySelector(window.location.hash);
-  if (targetElement) {
-      targetElement.style.display = "block";
-      targetElement.scrollIntoView({ behavior: "smooth" });
-  }
+    const targetElement = document.querySelector(window.location.hash);
+    if (targetElement) {
+        targetElement.style.display = "block";
+        targetElement.scrollIntoView({ behavior: "smooth" });
+    }
 });
 
 

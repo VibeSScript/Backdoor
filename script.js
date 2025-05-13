@@ -92,25 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Fonction pour afficher/masquer le tutoriel lorsque le lien est cliqué
-document.addEventListener("DOMContentLoaded", function () {
-  const tutoLink = document.querySelector('a[href="#tuto"]'); // Récupère le lien du tutoriel
-  const tutoSection = document.getElementById("tuto");
-
-  // Ajouter un événement de clic sur le lien
-  tutoLink.addEventListener("click", function (event) {
-      event.preventDefault(); // Empêcher le comportement par défaut du lien
-
-      // Vérifier si le tutoriel est actuellement affiché
-      if (tutoSection.style.display === "none" || tutoSection.style.display === "") {
-          tutoSection.style.display = "block"; // Afficher le tutoriel
-      } else {
-          tutoSection.style.display = "none"; // Masquer le tutoriel
-      }
-  });
-});
-
-
 
 
 async function checkPassword(level) {

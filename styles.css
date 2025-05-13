@@ -128,7 +128,6 @@ body {
 
 /* Tuto Section */
 #tuto {
-  display: none;
   background: linear-gradient(135deg, #ff4500 30%, #1a1a1a 70%);
   padding: 20px;
   border-radius: 15px;
@@ -206,17 +205,6 @@ input[type="submit"]:hover {
   margin: 20px;
   font-family: Arial, sans-serif;
 }
-
-/* Masquer le tutoriel par défaut */
-#tuto-container {
-  display: none;
-}
-
-/* Masquer les scénarios par défaut également */
-.scenario {
-  display: none;
-}
-
 
 #ctf-code-1,
 #ctf-code-2,

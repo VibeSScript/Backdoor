@@ -92,6 +92,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Défilement en douceur vers l'élément "tuto" lors du chargement de la page
+  const tutoElement = document.getElementById("tuto");
+  if (tutoElement) {
+      tutoElement.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+
 
 
 async function checkPassword(level) {

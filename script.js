@@ -56,7 +56,7 @@ function validateScenario(scenarioId, correctPassword) {
 
 // Ajouter les écouteurs d'événements pour chaque bouton de validation
 document.getElementById("validate-ctf-code-1").addEventListener("click", function () {
-  validateScenario(1, "Toulouse"); // Mot de passe correct pour le scénario 1
+  validateScenario(1, "TOULOUSE"); // Mot de passe correct pour le scénario 1
 });
 
 document.getElementById("validate-ctf-code-2").addEventListener("click", function () {

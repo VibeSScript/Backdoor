@@ -102,11 +102,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("load", function () {
   const tutoElement = document.getElementById("tuto");
-  
+
   if (tutoElement) {
-      // Petit délai pour s'assurer que le rendu est bien fait
+      // On le rend temporairement visible
+      tutoElement.style.display = "block";
+
+      // On scrolle avec un léger délai
       setTimeout(() => {
           tutoElement.scrollIntoView({ behavior: "smooth" });
+
+          // On le remet invisible après le scroll
+          setTimeout(() => {
+              tutoElement.style.display = "none";
+          }, 500);
       }, 100); 
   } else {
       console.warn("⚠️ L'élément avec l'ID 'tuto' n'a pas été trouvé.");

@@ -207,7 +207,8 @@ input[type="submit"]:hover {
 }
 
 #ctf-code-1,
-#ctf-code-2 {
+#ctf-code-2,
+#ctf-code-3 {
   width: 300px;
   padding: 10px;
   font-size: 16px;

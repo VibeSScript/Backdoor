@@ -60,7 +60,11 @@ document.getElementById("validate-ctf-code-1").addEventListener("click", functio
 });
 
 document.getElementById("validate-ctf-code-2").addEventListener("click", function () {
-  validateScenario(2, "FAIBLE"); // Mot de passe correct pour le scénario 2
+  validateScenario(2, "Je suis un pingouin"); // Mot de passe correct pour le scénario 2
+});
+
+document.getElementById("validate-ctf-code-3").addEventListener("click", function () {
+  validateScenario(3, "Voici le message secret"); // Mot de passe correct pour le scénario 2
 });
 
 // Initialisation : Générer la sidebar après le chargement du DOM
